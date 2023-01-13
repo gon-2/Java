@@ -1,0 +1,27 @@
+package Section2;
+
+public class Code17 {
+	public static void main(String[] args) {
+		//메서드 호출과 프로그램의 기능적 분할
+		
+		
+		for(int n = 2; n <= 100000; n++) {
+			if(isPrime(n)) System.out.println(n);
+		}
+	} // main
+	
+	
+	
+	static boolean isPrime(int n) {
+		
+		for(int i = 2; i * i <= n; i++) {
+			if ( n % i == 0) return false
+		}
+		
+		
+		return true;
+	}
+	
+	
+	
+}// class

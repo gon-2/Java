@@ -1,0 +1,80 @@
+package example;
+
+public class Product {
+	
+	private String brand;
+	private String productUID;
+	private String color;
+	private int price;
+	
+	private static Product product = new Product();
+	
+	private Product() {
+		
+	}
+		
+	
+	public Product(String brand, String productUID, String color, int price) {
+		super();
+		this.brand = brand;
+		this.productUID = productUID;
+		this.color = color;
+		this.price = price;
+	}
+	
+	
+	
+
+	
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getProductUID() {
+		return productUID;
+	}
+
+	public void setProductUID(String productUID) {
+		this.productUID = productUID;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	public static Product getProduct() {
+		return product;
+	}
+
+
+	public static void setProduct(Product product) {
+		Product.product = product;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Product [brand=" + brand + ", productUID=" + productUID + ", color=" + color + ", price=" + price + "]";
+	}
+
+
+	
+	
+}

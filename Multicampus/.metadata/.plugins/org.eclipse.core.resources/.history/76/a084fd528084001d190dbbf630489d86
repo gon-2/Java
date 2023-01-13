@@ -1,0 +1,39 @@
+package com.mc.g_netrwork.c_chat_v2.server;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ChatServerStudy {
+	
+	private ServerSocket serverSocket; // 서버 개발할때 사용하는 클래스
+	private Map<String, Socket> socketMap;
+	
+	public ChatServerStudy(){
+		
+		try {
+			this.serverSocket = new ServerSocket(80);
+			socketMap = Collections.synchronizedMap(new HashMap<>());
+		} catch (Exception e) {
+			e.printStackTrace(); // 단계별 예외처리
+		}
+		
+		
+	}
+	
+	public void startServer() {
+		
+		System.out.println("서버를 시작합니다...");
+		
+		while(true) {
+			try{
+				Socket socket = serverSocket.accept();
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

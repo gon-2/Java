@@ -1,0 +1,15 @@
+package baekjoon.chpter3;
+
+import java.util.Scanner;
+
+public class Ex_L_1110 {
+
+	public static void main(String[] args) {
+		
+		int n = 27;
+//		int t = (n % 10) * 10;
+		int t = ((n / 10) + (n % 10)) % 10;
+		
+		System.out.println(t);
+	}
+}

@@ -1,0 +1,10 @@
+package com.mc.g_netrwork.c_chat_v2.client;
+
+public class ChatClientstudy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,22 @@
+1670404813561	Rename package 'com.mc.lang.wrapperClass'
+1670460230347	Rename package 'com.mc.lang'
+1670460240689	Rename package 'com.mc.lang'
+1670460248706	Rename package 'com.mc.lang'
+1670463763567	Move compilation unit
+1670468067075	Copy compilation unit
+1670477654299	Move compilation units
+1670480369997	Rename type 'Musci'
+1670486740873	Extract method 'extracted'
+1670550671280	Rename type 'McList'
+1670554794370	Rename compilation unit 'McListTest.java'
+1670554815923	Rename type '_McList'
+1670565596518	Move compilation unit
+1670565759510	Copy compilation unit
+1670565917888	Move compilation unit
+1670565937095	Move compilation unit
+1670566228079	Copy package
+1670566237321	Delete element
+1670566272423	Delete element
+1670566336431	Rename compilation unit 'MyLinkedListTest.java'
+1670566358462	Rename compilation unit 'MyLinkedList.java'
+1670573394336	Rename package 'com.mc.util.collection.pac'

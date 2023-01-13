@@ -1,0 +1,15 @@
+package com.mc.dataAccessException;
+
+public class DataAccessException extends RuntimeException{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2091513986899749254L;
+	
+	public DataAccessException() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}

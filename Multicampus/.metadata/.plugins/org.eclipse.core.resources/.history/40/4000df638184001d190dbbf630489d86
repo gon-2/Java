@@ -1,0 +1,73 @@
+package com.mc.g_netrwork.c_chat_v2.server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ChatServerStudy {
+	
+	private ServerSocket serverSocket; // 서버 개발할때 사용하는 클래스
+	private Map<String, Socket> socketMap;
+	
+	public ChatServerStudy(){
+		
+		try {
+			this.serverSocket = new ServerSocket(80);
+			socketMap = Collections.synchronizedMap(new HashMap<>());
+		} catch (Exception e) {
+			e.printStackTrace(); // 단계별 예외처리
+		}
+		
+		
+	}
+	
+	public void startServer() {
+		
+		System.out.println("서버를 시작합니다...");
+		
+		while(true) {
+			try{
+				Socket socket = serverSocket.accept();
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	private void read(Socket socket) {
+		
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+
+				String userId = "anonymous";
+				
+				try(BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()))){
+					
+					while(true) {
+						String message = br.readLine();
+						
+						//socket연결이 끊기면, 더이상 스트림에서 읽어올 데이터가 없기 때문에, readLine이 null을 반환
+						if(message == null) break;
+						
+						String header = message.substring(0, message.indexOf("&")+1);
+						String body = message.replace(header, "");
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		});
+	}
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.mc.file.B_BFileIO.java&apos; to &apos;B_BFileIO_1.java&apos;&#x0D;&#x0A;- Original project: &apos;e_io&apos;&#x0D;&#x0A;- Original element: &apos;com.mc.file.B_BFileIO.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.mc.file.B_BFileIO_1.java&apos;" description="Rename compilation unit &apos;B_BFileIO.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.mc.file{B_BFileIO.java" name="B_BFileIO_1.java" references="false" stamp="1671876757044" version="1.0"/>
+</session>

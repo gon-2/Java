@@ -1,0 +1,53 @@
+package com.mc.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.jcp.xml.dsig.internal.dom.DOMBase64Transform;
+
+import com.mc.dto.Member;
+import com.mc.util.DBTemplate;
+
+import exception.DataAccessException;
+
+public class MemberDao {
+	
+	private DBTemplate dbt = DBTemplate.getInstance();
+
+	public int insertMember(Member member) {
+		// DB연결
+		Connection conn = null;
+		// 쿼리 전송 및 공격 방어
+		PreparedStatement pstmt = null;
+		int res = 0;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/bookmanager?useUnicode=true&characterEncoding=utf8";
+			conn = DriverManager.getConnection(url, "study", "123qwe!@#QWE");
+
+			String sql = "INSERT INTO member(USER_ID, PASSWORD, EMAIL, GRADE, TELL, IS_LEAVE) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)";
+			
+			pstmt.setString(1, member.getUserId());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getGrade());
+			pstmt.setString(5, member.getTell());
+			pstmt.setString(6, member.isLeave() ? "Y" : "N");
+			res = pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			throw new DataAccessException();
+		} finally {
+
+		}
+
+		return 0;
+	}
+
+}

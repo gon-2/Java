@@ -1,0 +1,5 @@
+package com.mc.dataAccessException;
+
+public class DataAccessException extends RuntimeException{
+
+}

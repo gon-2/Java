@@ -1,0 +1,30 @@
+package com.mc.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+import com.mc.dto.Member;
+
+public class MemberDao {
+	
+	public int insertMember(Member member) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/bookmanager?useUnicode=true&characterEncoding=utf8";
+			conn = DriverManager.getConnection(url, "study", "123qwe!@#QWE");
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+	
+
+}

@@ -1,0 +1,40 @@
+package com.mc.jdbc.member.dao;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import com.mc.jdbc.common.util.JDBCTemplate;
+import com.mc.jdbc.member.dto.Member;
+
+public class memberDaoA {
+	
+	// MVC2 패턴
+	// MODEL
+	//DAO(Data Access Object)
+	
+	// Persistence Layer
+	// 영속성 계층 : 데이터를 영구적으로 저장하기 위해 DB와 상호작용하는 Layer
+	
+	// 필요한 데이터를 DBMS에 요청
+	// DBMS로 부터 읽어온 데이터를 어플리케이션 내에서 사용하기 적합한 형태로 파싱
+	
+	public class MemberDao{
+		
+		private JDBCTemplate jdt = JDBCTemplate.getInstance();
+		
+		// 사용자 인증
+		public Member userAuthenticate(String userId, String password) {
+			
+			Member member = null;
+			String query = "select * from member where user_id = '" + userId + "' and password = '" + password + "'";
+			
+			try(Connection conn = jdt.getConnection(); Statement stmt = conn.createStatement()){
+				
+			}
+			
+			return member;
+		}
+		
+	}
+
+}

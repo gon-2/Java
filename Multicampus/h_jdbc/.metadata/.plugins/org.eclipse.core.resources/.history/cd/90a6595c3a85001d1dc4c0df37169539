@@ -1,0 +1,5 @@
+package com.mc.jdbc.member.dao;
+
+public class MemberDaoA {
+
+}

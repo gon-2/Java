@@ -1,0 +1,82 @@
+package com.mc.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mc.dto.Member;
+import com.mc.util.DBTemplate;
+
+import exception.DataAccessException;
+
+public class MemberDao {
+
+	private DBTemplate dbt = DBTemplate.getInstance();
+
+	public int insertMember(Member member) {
+		// DB연결
+		Connection conn = null;
+		// 쿼리 전송 및 공격 방어
+		PreparedStatement pstmt = null;
+		int res = 0;
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = "jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8";
+			conn = DriverManager.getConnection(url, "mc", "123qwe!@#QWE");
+
+			String sql = "INSERT INTO member(USER_ID, PASSWORD, EMAIL, GRADE, TELL, IS_LEAVE) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getUserId());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getGrade());
+			pstmt.setString(5, member.getTell());
+			pstmt.setString(6, member.isLeave() ? "Y" : "N");
+			res = pstmt.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			dbt.rollback(conn);
+			throw new DataAccessException();
+		} finally {
+			dbt.close(pstmt);
+		}
+
+		return res;
+	}
+	
+	public Member selectMember(Connection conn, String userId) {
+		String sql = "select * from member where userid = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Member member = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+//	private Member generateMember(ResultSet rset) throws SQLException {
+//		//USER_ID, PASSWORD, EMAIL, GRADE, TELL, IS_LEAVE
+//		Member member = new Member();
+//		member.setUserId(rset.getString("USER_ID"));
+//		member.setPassword(rset.getString("PASSWORD"));
+//		member.setEmail(rset.getString("EMAIL"));
+//		member.setGrade(rset.getString("GRADE"));
+//		member.setTell(rset.getString("TELL"));
+//		member.setLeave(rset.getString("IS_LEAVE"));
+//	}
+
+}

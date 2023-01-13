@@ -1,0 +1,22 @@
+package com.mc;
+
+import com.mc.dao.MemberDao;
+import com.mc.dto.Member;
+
+public class Run {
+
+	public static void main(String[] args) {
+		MemberDao memberDao = new MemberDao();
+		Member member = new Member();
+//		member.setUserId("mlnam");
+//		member.setPassword("1234");
+//		member.setEmail("mlnam@mlnam.com");
+//		member.setGrade("ROLE_ADMIN");
+//		member.setTell("010-1111-1111");
+//		member.setLeave(false);
+//		
+//		memberDao.insertMember(member);
+		System.out.println(member);
+	}
+
+}
